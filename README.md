@@ -89,3 +89,10 @@ def test_add():
 <br> Another recommended step is to add 'runs on' actions like a pull request. This allows for a more streamlined workflow and can help ensure that the code changes are thoroughly tested before being merged into the main branch. </br>
 
 ### As you move forward into Week 2 of the project, keep these next steps in mind. By continually improving the quality of your code, you'll be setting yourself up for success in the long run. 
+
+## Appendix
+<br> This repository has three branches -
+### 'main' branch contains the file code for the project
+### 'initial_starter_code' contains the inital code to start with
+### 'test' - The state of the project with a wrong test added for reference - this is supposed to fail the merge to master process in our workflow
+</br>
