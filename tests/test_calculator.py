@@ -1,8 +1,10 @@
 from calculator import add, div, mul, sub
 
 
- def test_add():
-     assert add(1, 1) == 2
+def test_add():
+    assert add(1, 1) == 2
+
+
 # def test_add():
 #     assert add(1, 1) == 0
 
