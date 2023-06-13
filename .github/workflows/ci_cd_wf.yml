@@ -27,3 +27,6 @@ jobs:
       - name: Run tests
         run: |
           python -m pytest -v tests
+      - name: Run coverage tests
+        run: |
+          pytest --cov=calculator tests
