@@ -14,12 +14,14 @@ def mul(a, b):
     return a * b
 
 
+def test_add():
+    assert add(1,1) == 0
+
 # Division
 def div(a, b):
     return a / b
 
-def test_add():
-    assert add(1,1) == 0
+
 
 
 if __name__ == "__main__":
