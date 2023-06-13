@@ -1,5 +1,7 @@
 # Week 1 - Project 
 
+test change
+
 # Goal
 To Establish a Robust and Reliable Development process by settting version control using Git, implementing comprehensive Unit Tests, and setting up effective workflows to ensure that only properly tested code is merged from other branches into the Master branch.
 
