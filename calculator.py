@@ -1,7 +1,7 @@
 # Demo Calculator App For Week 1 Project
 # Addition Method
-def add(a, b):
-    return a + b
+def test_add():
+    assert add(1,1) == 0
 
 
 # Subtract Method
