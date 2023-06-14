@@ -1,7 +1,7 @@
 from calculator import add, div, mul, sub
 
 def test_add():
-    assert add(1, 1) == 0  # Intentional mistake to make the test fail
+    assert add(1, 1) == 2  
 
 
 def test_sub():
