@@ -24,16 +24,13 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install -r requirements.txt
-
-      - name: Run tests with coverage
+      - name: Run tests
         run: |
-          python -m pytest --cov=. --cov-report=xml --junit-xml=./pytest-results.xml tests
-
+          python -m pytest -v tests --cov=tests.test_calculator --cov-report=xml:pytest.xml --cov-report=term-missing
+          
       - name: Pytest Coverage Comment
         uses: MishaKav/pytest-coverage-comment@v1.1.47
         with:
             pytest-coverage-path: ./pytest-coverage.txt
-            junitxml-path: ./pytest-results.xml
-            title: My coverage Report
-            badge-title: Badge Coverage
+            junitxml-path: ./pytest.xml
       
