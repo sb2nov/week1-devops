@@ -27,3 +27,6 @@ jobs:
       - name: Run tests
         run: |
           python -m pytest -v tests
+      - name: Pytest Coverage Comment
+        uses: MishaKav/pytest-coverage-comment@v1.1.47
+      
