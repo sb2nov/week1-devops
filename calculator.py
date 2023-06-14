@@ -1,5 +1,6 @@
 # Demo Calculator App For Week 1 Project
 # Addition Method
+
 def add(a, b):
     return a + b
 
