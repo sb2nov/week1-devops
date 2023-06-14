@@ -3,22 +3,18 @@
 def add(a, b):
     return a + b
 
-
 # Subtract Method
 def sub(a, b):
     return a - b
-
 
 # Multiplication
 def mul(a, b):
     return a * b
 
-
 # Division
 def div(a, b):
     return a / b
-
-
+    
 if __name__ == "__main__":
     # Declare variable and set default values
     a = 4
