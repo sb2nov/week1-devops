@@ -27,10 +27,10 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          python -m pytest -v --cov=calculator tests/test_calculator.py
+          python -m pytest -v --cov=calculator --cov-report=term-missing --cov-report=xml:coverage.xml tests/test_calculator.py
 
-      - name: Pytest coverage comment
-        uses: MishaKav/pytest-coverage-comment@main
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v2
         with:
-          pytest-coverage-path: tests/pytest-coverage.txt
-          junitxml-path: tests/pytest.xml
+          name: coverage-report
+          path: coverage.xml
