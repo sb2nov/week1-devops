@@ -27,3 +27,8 @@ jobs:
       - name: Run tests
         run: |
           python -m pytest -v tests
+      - name: Pytest coverage comment
+        uses: MishaKav/pytest-coverage-comment@v1.1.47
+        with:
+          pytest-coverage-path: ./pytest-coverage.txt
+          junitxml-path: ./pytest.xml
