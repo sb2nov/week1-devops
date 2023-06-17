@@ -1,0 +1,56 @@
+name: test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.x"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install -r requirements.txt
+          
+      - name: Run tests
+        run: |
+          python -m pytest -v tests
+
+      - name: Run tests and generate coverage report
+        run: |
+          python3 -m pytest --cov=./ --cov-report=xml \
+          --verbose \
+          --color=yes \
+          tests/
+      
+      # Upload generated XML formatted coverage report artifact which will be later referenced by comment section on PRs
+     
+     # Arguments like path, retention_days etc could differ based on your needs.
+      - name: Upload coverage report to GitHub
+        uses: actions/upload-artifact@v2.2.4 
+        with:
+          name: coverage-report
+          path: ./coverage.xml 
+
+      # Check if current job is running in the context of a pull request and whether it was triggered by PR event or not.
+    # If yes, then add comment on that PR providing details about code coverage information.
+    
+      - name: Comment on Pull Request with coverage report
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+         
