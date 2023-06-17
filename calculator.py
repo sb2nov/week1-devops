@@ -11,8 +11,11 @@ def sub(a, b):
 
 # Multiplication
 def mul(a, b):
-    return a * b
+    return (a * b)
 
+# Division
+def div(a,b):
+    return (a/b)
 
 # Division
 def div(a, b):
