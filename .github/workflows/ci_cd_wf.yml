@@ -27,3 +27,12 @@ jobs:
       - name: Run tests
         run: |
           python -m pytest -v tests
+
+      - name: Run tests and generate coverage report
+        run: |
+          python -m pytest -v --cov=my_project tests
+      
+      - name: Comment on Pull Request with coverage report
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
