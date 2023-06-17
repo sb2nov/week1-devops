@@ -1,0 +1,46 @@
+name : test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+        branches:
+          - "*"
+
+jobs:
+  test:
+    runs-on : ubuntu-latest
+
+    steps:
+      - name: Check out repo code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.x"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install -r requirements.txt
+      - name: Run tests
+        run: |
+          python -m pytest -v tests
+
+      - name: Pytest coverage comment
+        uses: MishaKav/pytest-coverage-comment@main
+        with:
+            pytest-coverage-path: ./path-to-file/pytest-coverage.txt
+            pytest-xml-coverage-path: ./path-to-file/coverage.xml
+            title: My Coverage Report Title
+            badge-title: My Badge Coverage Title
+            hide-badge: false
+            hide-report: false
+            create-new-comment: false
+            hide-comment: false
+            report-only-changed-files: false
+            remove-link-from-badge: false
+            unique-id-for-comment: python3.8
+            junitxml-path: ./path-to-file/pytest.xml
+            junitxml-title: My JUnit Xml Summary Title
