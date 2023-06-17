@@ -30,9 +30,28 @@ jobs:
 
       - name: Run tests and generate coverage report
         run: |
-          python -m pytest -v --cov=my_project tests
+          python3 -m pytest --cov=./ --cov-report=xml \
+          --verbose \
+          --color=yes \
+          tests/
       
-      - name: Comment on Pull Request with coverage report
-        uses: codecov/codecov-action@v2
+      # Upload generated XML formatted coverage report artifact which will be later referenced by comment section on PRs
+     
+     # Arguments like path, retention_days etc could differ based on your needs.
+      - name: Upload coverage report to GitHub
+        uses: actions/upload-artifact@v2.2.4 
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          name: coverage-report
+          path: ./coverage.xml 
+
+      # Check if current job is running in the context of a pull request and whether it was triggered by PR event or not.
+    # If yes, then add comment on that PR providing details about code coverage information.
+    
+      - name : Add Code Coverage Report Comments On Pull Request 
+        uses : mshick/add-pr-comment@v1.0.3 
+        env :
+            GITHUB_TOKEN : ${{ secrets.GITHUB_TOKEN }}
+        with:
+          message_file_path : ./comment.txt
+
+         
