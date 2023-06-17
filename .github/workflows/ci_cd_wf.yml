@@ -47,11 +47,9 @@ jobs:
       # Check if current job is running in the context of a pull request and whether it was triggered by PR event or not.
     # If yes, then add comment on that PR providing details about code coverage information.
     
-      - name : Add Code Coverage Report Comments On Pull Request 
-        uses : mshick/add-pr-comment@v1.0.3 
-        env :
-            GITHUB_TOKEN : ${{ secrets.GITHUB_TOKEN }}
+      - name: Comment on Pull Request with coverage report
+        uses: codecov/codecov-action@v2
         with:
-          message_file_path : ./comment.txt
+          token: ${{ secrets.GITHUB_TOKEN }}
 
          
