@@ -11,6 +11,7 @@ def sub(a, b):
 
 # Multiplication
 def mul(a, b):
+
     return a * b
 
 
