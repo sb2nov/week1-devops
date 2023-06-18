@@ -11,7 +11,17 @@ def sub(a, b):
 
 # Multiplication
 def mul(a, b):
+
     return a * b
+    
+
+# Division
+def div(a,b):
+    return (a/b)
+
+def test_add():
+    assert add(1,1) == 2
+    test
 
 
 # Division
