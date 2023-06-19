@@ -27,6 +27,7 @@ jobs:
           python -m pytest calculator.py
 
       - name: Build coverage file
-        run: |
-          pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=app test/ | tee pytest-coverage.txt
-        
+        uses: MishaKav/pytest-coverage-comment@main
+        with:
+            pytest-coverage-path: ./pytest-coverage.txt
+            junitxml-path: ./pytest.xml
