@@ -21,12 +21,10 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install -r requirements.txt
-
       - name: Run tests
         run: |
           python -m pytest calculator.py
-
-      - name: Build coverage file
+      - name: Pytest coverage comment
         uses: MishaKav/pytest-coverage-comment@main
         with:
             pytest-coverage-path: ./pytest-coverage.txt
