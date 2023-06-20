@@ -28,5 +28,4 @@ if __name__ == "__main__":
     print("Product of " + str(a) + " and " + str(b) + " is ", mul(a, b))
     print("Division of " + str(a) + " and " + str(b) + " is ", div(a, b))
 
-def test_add():
-    assert add(1,1) == 0
+
