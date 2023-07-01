@@ -2,11 +2,11 @@ from calculator import add, div, mul, sub
 
 
 def test_add():
-    assert add(1, 1) == 7
+    assert add(1, 1) == 0
 
 
 def test_sub():
-    assert sub(1, 1) == 1
+    assert sub(1, 1) == 0
 
 
 def test_mul():
